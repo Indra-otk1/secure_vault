@@ -1,5 +1,5 @@
 #!/bin/bash
-# CyberSec Ops: Secure Vault Challenge - Step 4: Vault Monitoring
+
 
 VAULT_DIR="$HOME/secure_vault"
 REPORT_FILE="$VAULT_DIR/vault_report.txt"
