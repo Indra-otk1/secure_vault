@@ -45,11 +45,11 @@ add_log_entry() {
     read -r -p "Enter log message: " log_message
     timestamp=$(date +"%Y-%m-%d %H:%M:%S")
     echo "[$timestamp] $log_message" >> "$LOGS_FILE"
-    echo "✅ Log entry added."
+    echo " Log entry added."
 }
 
 access_keys() {
-    echo "🚫 ACCESS DENIED 🚫"
+    echo " ACCESS DENIED "
     echo "Attempt to access keys logged."
     timestamp=$(date +"%Y-%m-%d %H:%M:%S")
     echo "[$timestamp] ACCESS DENIED: Attempted access to keys.txt." >> "$LOGS_FILE"
