@@ -7,7 +7,7 @@ SECURITY_RISK_THRESHOLD="644"
 RISK_DETECTED=0
 
 if [ ! -d "$VAULT_DIR" ]; then
-    echo "❌ ERROR: secure_vault directory not found at $VAULT_DIR."
+    echo " ERROR: secure_vault directory not found at $VAULT_DIR."
     exit 1
 fi
 
@@ -38,7 +38,7 @@ for file_path in "$VAULT_DIR"/*; do
     
         if [ "$file_perms_octal" -gt "$SECURITY_RISK_THRESHOLD" ]; then
             echo "WARNING: $file_name has permissions $file_perms_octal, which is more open than $SECURITY_RISK_THRESHOLD."
-            echo "⚠️ SECURITY RISK DETECTED" >> "$REPORT_FILE"
+            echo " SECURITY RISK DETECTED" >> "$REPORT_FILE"
             RISK_DETECTED=1
         fi
     fi
@@ -48,15 +48,15 @@ done
 {
     echo "--------------------------------------"
     if [ "$RISK_DETECTED" -eq 1 ]; then
-        echo "🚨 WARNING: One or more files have overly permissive access."
+        echo " WARNING: One or more files have overly permissive access."
     else
-        echo "✅ No major security risks detected based on permission checks."
+        echo " No major security risks detected based on permission checks."
     fi
     echo "= END OF REPORT ="
 } >> "$REPORT_FILE"
 
 
 echo ""
-echo "✅ Vault Monitoring Scan Complete."
+echo " Vault Monitoring Scan Complete."
 echo "Report saved to $REPORT_FILE."
 cat "$REPORT_FILE"
