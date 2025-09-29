@@ -6,7 +6,7 @@ SECRETS_FILE="$VAULT_DIR/secrets.txt"
 LOGS_FILE="$VAULT_DIR/logs.txt"
 
 if [ ! -d "$VAULT_DIR" ]; then
-    echo "❌ ERROR: secure_vault directory not found at $VAULT_DIR."
+    echo " ERROR: secure_vault directory not found at $VAULT_DIR."
     echo "Please run vault_setup.sh first."
     exit 1
 fi
@@ -35,7 +35,7 @@ update_permission() {
             chmod "$new_perm" "$file_path"
             echo "Perms set to $new_perm for $file_name."
         else
-            echo "⚠️ Invalid permission format. Using default $default_perm."
+            echo " Invalid permission format. Using default $default_perm."
             chmod "$default_perm" "$file_path"
         fi
     else
@@ -57,6 +57,6 @@ update_permission "$SECRETS_FILE" 640
 update_permission "$LOGS_FILE" 644
 
 echo ""
-echo "✅ Final Vault File Permissions:"
+echo " Final Vault File Permissions:"
 ls -l "$VAULT_DIR"
 
